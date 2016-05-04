@@ -6,7 +6,7 @@
   <title>Metro San Fernando Multi Modal Transport Planning System</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   <link rel="stylesheet" href="leaflet/leaflet.css" />
   <link rel="stylesheet" href="leaflet/leaflet-routing-machine.css" />
 
@@ -15,6 +15,7 @@
 
 
   <link rel="stylesheet" type="text/css" href="css/main.css">
+
 
 
   <!--google api for places lib-->
@@ -98,7 +99,7 @@
        <img src="/images/wireframe/image.png">
     </div>
     <div class="content">
-        <div class="header">{{mode}}  {{from}} to {{to}}</div>
+        <div class="header">{{mode}}  {{from.name}} to {{to.name}}</div>
         <div class="meta">
             <span class="distance">Route   : {{route}} </span>
             <span class="distance">Distance {{distance}}</span>

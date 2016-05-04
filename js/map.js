@@ -1,11 +1,14 @@
 	var base_latlng =  L.latLng(16.61673, 120.31737);
 
 	var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+	//var osmUrl = 'http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png';
 	var osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 	var map = L.map('map').setView(base_latlng, 14);
 	var circle_radius = 500;
 
+//  var osmGeocoder = new L.Control.OSMGeocoder();
 
+     //   map.addControl(osmGeocoder);
 	/*var baseIcon = L.icon({
 		iconUrl: 'leaflet/images/marker-icon.png',
 		shadowUrl: 'leaflet/images/marker-shadow.png',
@@ -14,38 +17,51 @@
 		popupAnchor:[1,-15],
 		shadowSize:[54,39]
 	});*/
-	 var toIcon = L.AwesomeMarkers.icon({
-      icon: 'arrow-down',
-      prefix: 'fa',
-      markerColor: 'red'
-     });
+	var toIcon = L.AwesomeMarkers.icon({
+		icon: 'arrow-down',
+		prefix: 'fa',
+		markerColor: 'red'
+	});
 
-      var fromIcon = L.AwesomeMarkers.icon({
-      icon: 'arrow-down',
-      prefix: 'fa',
-      markerColor: 'green'
-     });
+	var fromIcon = L.AwesomeMarkers.icon({
+		icon: 'arrow-down',
+		prefix: 'fa',
+		markerColor: 'green'
+	});
+
+	var jeepIcon = L.AwesomeMarkers.icon({
+		icon: 'cab',
+		prefix: 'fa',
+		markerColor: 'green'
+	});
+
+	var busIcon = L.AwesomeMarkers.icon({
+		icon: 'bus',
+		prefix: 'fa',
+		markerColor: 'green'
+	});
+
+	var tricIcon = L.AwesomeMarkers.icon({
+		icon: 'motorcycle',
+		prefix: 'fa',
+		markerColor: 'green'
+	});
+
+
+	var jeep = L.icon({
+    iconUrl: 'icons/jeep.png',
+     iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+  
+
+});
 
 	
 
 	var line_colors =['blue','red','orange','black'];
 
-/*	var leg_route = {
-		mode : "",
-		from : "",
-		to : "",
-		
 
-	}	
 
-	var step = {
-		direction : "",
-		streetname : ""
-
-	}
-*/
-
-	var route_layer = new L.layerGroup().addTo(map);
+	var itinerary_layer = new L.layerGroup().addTo(map);
 
 	
 
@@ -88,10 +104,10 @@ fromBox.addListener('place_changed', function() {
 	if (place.geometry) {
 		from_marker = L.marker(fromLatLng,{icon:fromIcon}).addTo(map);
 	//if to_marker exist the call otp
-		if (toLatLng != null){
-			getRoute(fromLatLng,toLatLng);
-		}
+	if (toLatLng != null){
+		getRoute(fromLatLng,toLatLng);
 	}
+}
 
 
 });
@@ -113,21 +129,33 @@ var route_choices = [];
 
 function getLegLayer(r,index){
 
-    var layer = new L.layerGroup();
+	var layer = new L.layerGroup();
     //all legs inside route
 
-	r.legs.forEach(function(l){
+    r.legs.forEach(function(l){
 
-		var latlngs = decodePoints(l.points);
-		var options = new line_options(index);
-		if (l.mode == "WALK"){
-			options.dashArray = '10,10';
-		}
+    	var latlngs = decodePoints(l.points);
+    	var options = new line_options(index);
+    	if (l.mode == "WALK"){
+    		options.dashArray = '5,5';
+    	}
 
-		layer.addLayer(L.polyline(latlngs,options));
-	});
+    	layer.addLayer(L.polyline(latlngs,options));
 
-	return layer;
+    });
+
+    return layer;
+
+}
+
+function p2Polyline(leg,index){
+
+	var latlngs = decodePoints(leg.legGeometry.points);
+	var options = new line_options(index); 
+	if (leg.mode == "WALK"){
+		options.dashArray = '10,10';
+	}
+	return 	L.polyline(latlngs,options);
 
 }
 
@@ -174,17 +202,17 @@ function getRoute(fromPlace,toPlace) {
   		})
 	.done(function(data) {
 
-	tryc_route.setWaypoints( [
+		tryc_route.setWaypoints( [
 			L.latLng(fromPlace),
 			L.latLng(toPlace)
 			]);
 
-	
-  	route_layer.addLayer(tryc_route);
-		
 
-		process_otp(data);
-	})
+  //	itinerary_layer.addLayer(tryc_route);
+
+
+  process_otp(data);
+})
 	.fail(function() {
 		alert("Ajax failed to fetch data")
 	})
@@ -200,30 +228,35 @@ function line_options(c){
 };
 
 
-function route(duration,transfers,walkDistance)  {
+
+
+function o_itinerary(duration,transfers,walkDistance)  {
 	this.duration = duration;
 	this.transfers = transfers;
 	this.walkDistance = walkDistance;
 	this.fare = 0;
 	this.distance = 0;
 	this.legs = [];
+	this.layer = new L.layerGroup();
+
 
 }
 
-function route_leg(mode,from,to,points,distance)  {
+function o_itinerary_leg(mode,from,to,polyline,distance)  {
 	this.mode = mode;
 	this.from = from;
 	this.to = to;
-	this.points = points;
+	this.polyline = polyline;
 	this.fare = 0;
 	this.distance = distance;
 	this.steps = [];
+	this.route = "";
 
 }
 
-function step(direction,streetname){
-   this.direction = direction;
-   this.streetname = streetname;
+function o_step(direction,streetname){
+	this.direction = direction;
+	this.streetname = streetname;
 }
 
 
@@ -234,54 +267,68 @@ function process_otp(data){
 		var results = data.plan.itineraries;
 
 
-	
+   var it_ctr = 0;
 		results.forEach(function(itinerary) {
-
-			var r = new  route(formatDuration(itinerary.duration),itinerary.transfers,Math.round(itinerary.walkDistance));
+			
+			var o_it = new  o_itinerary(formatDuration(itinerary.duration),itinerary.transfers,Math.round(itinerary.walkDistance));
 			var total_fare = 0;
 			var total_distance = 0;
 
 			itinerary.legs.forEach(function(leg){
-
+				var leg_ctr = 0;
 				var minDistance = 4000;
 				var fare = 0.00;
 				var base_fare = 8.50;
+				var fare_km = 1.50;
 
-				var rl = new route_leg(leg.mode,leg.from.name,leg.to.name,leg.legGeometry.points,Math.round(leg.distance));
-			
+				var o_it_leg = new o_itinerary_leg(leg.mode,leg.from,leg.to,leg.legGeometry.points,Math.round(leg.distance));
+				console.log("leg route" + leg.route);
+				o_it_leg.route = leg.route;
 
 				if (leg.mode == "WALK"){
 					//add steps
 					
 					leg.steps.forEach(function(s){
-						rl.steps.push(new step(s.relativeDirection,s.streetName));	
+						o_it_leg.steps.push(new o_step(s.relativeDirection,s.streetName));	
 
 					});
 
-					}else{
+				}else{
 
 					if (leg.distance > minDistance){
-					   fare = base_fare + (((leg.distance - minDistance)/1000) * 1.50);
-				    }
-
+						fare = base_fare + (((leg.distance - minDistance)/1000) * fare_km);
+					}else{
+						fare = base_fare;
 					}
 
-					total_distance = total_distance + leg.distance;
-					total_fare = total_fare + fare;
-					
-					rl.fare = fare.toFixed(2);
+				}
 
-				   r.legs.push(rl);
+				total_distance = total_distance + leg.distance;
+				total_fare = total_fare + fare;
+
+				o_it_leg.fare = fare.toFixed(2);
+			
+				o_it_leg.polyline = p2Polyline(leg,it_ctr);
+				o_it.layer.addLayer(p2Polyline(leg,it_ctr));
+				if (leg.mode == "WALK!"){
+				  o_it.layer.addLayer(L.marker(L.latLng(leg.from.lat,leg.from.lon),{icon:jeepIcon}));
+			    }else	if (leg.mode != "BUS"){
+			    	o_it.layer.addLayer(L.marker(L.latLng(leg.from.lat,leg.from.lon),{icon:jeep}));
+			    }
+
+				o_it.legs.push(o_it_leg);
 
 						// zoom the map to the polyline
 						//map.fitBounds(polyline.getBounds());
+						++leg_ctr;
 					});
-         
-				r.fare = total_fare;
-				
-				r.distance = Math.round(total_distance/1000);
+			++it_ctr;
+			o_it.fare = total_fare;
 
-			   route_choices.push(r);
+
+			o_it.distance = Math.round(total_distance/1000);
+
+			route_choices.push(o_it);
 					//push it here
 					
 				});
@@ -294,12 +341,13 @@ function process_otp(data){
 
 
 			
-			var ctr = 0;
+			
 			 //build the routes on map
+			 console.log(route_choices);
 			 route_choices.forEach(function(r){
-		
-			 	route_layer.addLayer(getLegLayer(r,ctr));
-               ++ctr;
+
+			 	itinerary_layer.addLayer(r.layer);
+
 			 });
 
 
@@ -316,23 +364,23 @@ function process_otp(data){
 
 		function build_menu_items(it){
 
-			itineraries.set('it',it);
+			r_itineraries.set('it',it);
 			
 
 			//routes.set('it',[{leg:'one'},{leg:'two'},{leg:'three'}]);
 
 		}
 
-		var tricycle_routes = new Ractive({
-			 el: '#tricycle_list',
+		var r_tricycle_routes = new Ractive({
+			el: '#tricycle_list',
 		      // We could pass in a string, but for the sake of convenience
 		      // we're passing the ID of the <script> tag above.
 		      template: '#tricycle_template',
 		      // Here, we're passing in some initial data
 		      data: {  tricycle:[] }
-		});
+		  });
 
-		var itineraries = new Ractive({
+		var r_itineraries = new Ractive({
 		      // The `el` option can be a node, an ID, or a CSS selector.
 		      el: '#it_list',
 
@@ -344,7 +392,7 @@ function process_otp(data){
 		      data: {  it:[] }
 		  });
 
-			var itinerary = new Ractive({
+		var r_itinerary = new Ractive({
 		      // The `el` option can be a node, an ID, or a CSS selector.
 		      el: '#leg_list',
 
@@ -356,66 +404,67 @@ function process_otp(data){
 		      data: {  legs:[] }
 		  });
 
-		itinerary.on({
+		r_itinerary.on({
 			click: function(event,index){
 					// zoom the map to the polyline
 						//map.fitBounds(polyline.getBounds());
-						alert("click");
-			}
+							
+						var l = this.get('legs');
+						map.fitBounds(l[index].polyline.getBounds(),{padding: [50, 50], maxZoom:18});
 
-		});	
-	
 
-		itineraries.on({
+					}
+
+				});	
+
+
+		r_itineraries.on({
 			hover: function(event, index) {
 				//remove all
 
 
-				route_layer.clearLayers();
+				itinerary_layer.clearLayers();
 
-				route_layer.addLayer(getLegLayer(route_choices[index],index));
-				
-		  		 itinerary.set('legs',route_choices[index].legs);
-			
-				},
+				itinerary_layer.addLayer(route_choices[index].layer);
+
+				map.setView(base_latlng, 14);
+				r_itinerary.set('legs',route_choices[index].legs);
+
+			},
 
 			over: function(event, index){
-					route_layer.clearLayers();
-alert("over and out");
-					var ctr = 0;
+				itinerary_layer.clearLayers();
+				alert("over and out");
+				var ctr = 0;
 			 //build the routes on map
-					 route_choices.forEach(function(r){
-				console.log("1 route");
-					 	route_layer.addLayer(getLegLayer(r,ctr));
-		               ++ctr;
-					 });
-							
-					}	
-		
+			 route_choices.forEach(function(r){
+			 	console.log("1 route");
+			 	route_layer.addLayer(getLegLayer(r,ctr));
+			 	++ctr;
+			 });
+
+			}	
+
 			
 		});
 
-		tricycle_routes.on({
-				hover: function(event, index) {
+		r_tricycle_routes.on({
+			hover: function(event, index) {
 				//remove all
 
 
-				route_layer.clearLayers();
+				itinerary_layer.clearLayers();
 
-				
-				
-		  	    route_layer.addLayer(tryc_route);
-			
-				},
-		
+				itinerary_layer.addLayer(tryc_route);
 
+			},
 
 		});
 
 		tryc_route.on('routesfound',function(e){
-		    console.log(e.routes);
-		    tricycle_routes.set('tricycle',e.routes);
-	    });
+			console.log(e.routes);
+			tricycle_routes.set('tricycle',e.routes);
+		});
 
 
 
