@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+   <requestParameters>
+      <date>04-28-2016</date>
+      <mode>TRANSIT,WALK</mode>
+      <arriveBy>false</arriveBy>
+      <wheelchair>false</wheelchair>
+      <fromPlace>LatLng(16.632458,120.318145)</fromPlace>
+      <toPlace>LatLng(16.617010,120.319000)</toPlace>
+      <time>04:00am</time>
+      <maxWalkDistance>804.672</maxWalkDistance>
+      <locale>en</locale>
+   </requestParameters>
+   <plan>
+      <date>1461787200000</date>
+      <from>
+         <name>service road</name>
+         <stopId />
+         <stopCode />
+         <platformCode />
+         <lon>120.3181603277695</lon>
+         <lat>16.632373895307737</lat>
+         <arrival />
+         <departure />
+         <orig />
+         <zoneId />
+         <stopIndex />
+         <stopSequence />
+         <vertexType>NORMAL</vertexType>
+      </from>
+      <to>
+         <name>road</name>
+         <stopId />
+         <stopCode />
+         <platformCode />
+         <lon>120.31902063054144</lon>
+         <lat>16.617047719041945</lat>
+         <arrival />
+         <departure />
+         <orig />
+         <zoneId />
+         <stopIndex />
+         <stopSequence />
+         <vertexType>NORMAL</vertexType>
+      </to>
+      <itineraries>
+         <itineraries>
+            <duration>25418</duration>
+            <startTime>1461848318000</startTime>
+            <endTime>1461873736000</endTime>
+            <walkTime>216</walkTime>
+            <transitTime>0</transitTime>
+            <waitingTime>25202</waitingTime>
+            <walkDistance>279.41069924716203</walkDistance>
+            <walkLimitExceeded>false</walkLimitExceeded>
+            <elevationLost>0.0</elevationLost>
+            <elevationGained>0.0</elevationGained>
+            <transfers>0</transfers>
+            <fare>
+               <fare>
+                  <regular>
+                     <currency>
+                        <symbol>PHP</symbol>
+                        <currency>PHP</currency>
+                        <defaultFractionDigits>2</defaultFractionDigits>
+                        <currencyCode>PHP</currencyCode>
+                     </currency>
+                     <cents>850</cents>
+                  </regular>
+               </fare>
+            </fare>
+            <legs>
+               <legs>
+                  <startTime>1461848318000</startTime>
+                  <endTime>1461848398000</endTime>
+                  <departureDelay>0</departureDelay>
+                  <arrivalDelay>0</arrivalDelay>
+                  <realTime>false</realTime>
+                  <isNonExactFrequency />
+                  <headway />
+                  <distance>106.174</distance>
+                  <pathway>false</pathway>
+                  <mode>WALK</mode>
+                  <route />
+                  <agencyName />
+                  <agencyUrl />
+                  <agencyTimeZoneOffset>28800000</agencyTimeZoneOffset>
+                  <routeColor />
+                  <routeType />
+                  <routeId />
+                  <routeTextColor />
+                  <interlineWithPreviousLeg>false</interlineWithPreviousLeg>
+                  <tripShortName />
+                  <tripBlockId />
+                  <headsign />
+                  <agencyId />
+                  <tripId />
+                  <serviceDate />
+                  <from>
+                     <name>service road</name>
+                     <stopId />
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.3181603277695</lon>
+                     <lat>16.632373895307737</lat>
+                     <arrival />
+                     <departure>1461848318000</departure>
+                     <orig />
+                     <zoneId />
+                     <stopIndex />
+                     <stopSequence />
+                     <vertexType>NORMAL</vertexType>
+                  </from>
+                  <to>
+                     <name>Lorma Brgy Carlatan</name>
+                     <stopId>
+                        <agencyId>LTFRB</agencyId>
+                        <id>STOP1902</id>
+                     </stopId>
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.31796</lon>
+                     <lat>16.63186</lat>
+                     <arrival>1461848398000</arrival>
+                     <departure>1461873599000</departure>
+                     <orig />
+                     <zoneId />
+                     <stopIndex>17</stopIndex>
+                     <stopSequence>18</stopSequence>
+                     <vertexType>TRANSIT</vertexType>
+                  </to>
+                  <legGeometry>
+                     <points>ioodBosj}UHt@d@Lf@ACc@HABL</points>
+                     <levels />
+                     <length>7</length>
+                  </legGeometry>
+                  <routeShortName />
+                  <routeLongName />
+                  <boardRule />
+                  <alightRule />
+                  <rentedBike>false</rentedBike>
+                  <duration>80.0</duration>
+                  <transitLeg>false</transitLeg>
+                  <steps>
+                     <steps>
+                        <distance>106.174</distance>
+                        <relativeDirection>DEPART</relativeDirection>
+                        <streetName>service road</streetName>
+                        <absoluteDirection>WEST</absoluteDirection>
+                        <exit />
+                        <stayOn>false</stayOn>
+                        <area>false</area>
+                        <bogusName>false</bogusName>
+                        <lon>120.3181603277695</lon>
+                        <lat>16.632373895307737</lat>
+                        <elevation />
+                     </steps>
+                  </steps>
+               </legs>
+               <legs>
+                  <startTime>1461873599000</startTime>
+                  <endTime>1461873599000</endTime>
+                  <departureDelay>0</departureDelay>
+                  <arrivalDelay>0</arrivalDelay>
+                  <realTime>false</realTime>
+                  <isNonExactFrequency />
+                  <headway />
+                  <distance>3155.6240383311547</distance>
+                  <pathway>false</pathway>
+                  <mode>BUS</mode>
+                  <route>Lingsat - CSI</route>
+                  <agencyName>Land</agencyName>
+                  <agencyUrl>http://www.ltfrb.gov.ph/</agencyUrl>
+                  <agencyTimeZoneOffset>28800000</agencyTimeZoneOffset>
+                  <routeColor>ff0000</routeColor>
+                  <routeType>3</routeType>
+                  <routeId>PUJ_02</routeId>
+                  <routeTextColor>000000</routeTextColor>
+                  <interlineWithPreviousLeg>false</interlineWithPreviousLeg>
+                  <tripShortName />
+                  <tripBlockId />
+                  <headsign />
+                  <agencyId>LTFRB</agencyId>
+                  <tripId>TRIP3</tripId>
+                  <serviceDate>20160428</serviceDate>
+                  <from>
+                     <name>Lorma Brgy Carlatan</name>
+                     <stopId>
+                        <agencyId>LTFRB</agencyId>
+                        <id>STOP1902</id>
+                     </stopId>
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.31796</lon>
+                     <lat>16.63186</lat>
+                     <arrival>1461848398000</arrival>
+                     <departure>1461873599000</departure>
+                     <orig />
+                     <zoneId />
+                     <stopIndex>17</stopIndex>
+                     <stopSequence>18</stopSequence>
+                     <vertexType>TRANSIT</vertexType>
+                  </from>
+                  <to>
+                     <name>SFC Badminton Court P. Burgos St</name>
+                     <stopId>
+                        <agencyId>LTFRB</agencyId>
+                        <id>STOP99</id>
+                     </stopId>
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.317944</lon>
+                     <lat>16.617898</lat>
+                     <arrival>1461873599000</arrival>
+                     <departure>1461873600000</departure>
+                     <orig />
+                     <zoneId />
+                     <stopIndex>30</stopIndex>
+                     <stopSequence>31</stopSequence>
+                     <vertexType>TRANSIT</vertexType>
+                  </to>
+                  <legGeometry>
+                     <points>clodBgrj}Ub\_@NmANpAoAwHjBdBm@gBsLqQ~GNQkE`W\xj@xUoAc@mArK</points>
+                     <levels />
+                     <length>14</length>
+                  </legGeometry>
+                  <routeShortName>Lingsat - CSI</routeShortName>
+                  <routeLongName>Jeepney route from Lingsat to RRJ via CSI V.V.</routeLongName>
+                  <boardRule />
+                  <alightRule />
+                  <rentedBike>false</rentedBike>
+                  <duration>0.0</duration>
+                  <transitLeg>true</transitLeg>
+                  <steps />
+               </legs>
+               <legs>
+                  <startTime>1461873600000</startTime>
+                  <endTime>1461873736000</endTime>
+                  <departureDelay>0</departureDelay>
+                  <arrivalDelay>0</arrivalDelay>
+                  <realTime>false</realTime>
+                  <isNonExactFrequency />
+                  <headway />
+                  <distance>173.207</distance>
+                  <pathway>false</pathway>
+                  <mode>WALK</mode>
+                  <route />
+                  <agencyName />
+                  <agencyUrl />
+                  <agencyTimeZoneOffset>28800000</agencyTimeZoneOffset>
+                  <routeColor />
+                  <routeType />
+                  <routeId />
+                  <routeTextColor />
+                  <interlineWithPreviousLeg>false</interlineWithPreviousLeg>
+                  <tripShortName />
+                  <tripBlockId />
+                  <headsign />
+                  <agencyId />
+                  <tripId />
+                  <serviceDate />
+                  <from>
+                     <name>SFC Badminton Court P. Burgos St</name>
+                     <stopId>
+                        <agencyId>LTFRB</agencyId>
+                        <id>STOP99</id>
+                     </stopId>
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.317944</lon>
+                     <lat>16.617898</lat>
+                     <arrival>1461873599000</arrival>
+                     <departure>1461873600000</departure>
+                     <orig />
+                     <zoneId />
+                     <stopIndex>30</stopIndex>
+                     <stopSequence>31</stopSequence>
+                     <vertexType>TRANSIT</vertexType>
+                  </from>
+                  <to>
+                     <name>road</name>
+                     <stopId />
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.31902063054144</lon>
+                     <lat>16.617047719041945</lat>
+                     <arrival>1461873736000</arrival>
+                     <departure />
+                     <orig />
+                     <zoneId />
+                     <stopIndex />
+                     <stopSequence />
+                     <vertexType>NORMAL</vertexType>
+                  </to>
+                  <legGeometry>
+                     <points>{tldB_rj}UbAHz@mCj@wA</points>
+                     <levels />
+                     <length>4</length>
+                  </legGeometry>
+                  <routeShortName />
+                  <routeLongName />
+                  <boardRule />
+                  <alightRule />
+                  <rentedBike>false</rentedBike>
+                  <duration>136.0</duration>
+                  <transitLeg>false</transitLeg>
+                  <steps>
+                     <steps>
+                        <distance>38.234</distance>
+                        <relativeDirection>DEPART</relativeDirection>
+                        <streetName>Gov. Lubita Street</streetName>
+                        <absoluteDirection>SOUTH</absoluteDirection>
+                        <exit />
+                        <stayOn>false</stayOn>
+                        <area>false</area>
+                        <bogusName>false</bogusName>
+                        <lon>120.31792944119518</lon>
+                        <lat>16.617900125248653</lat>
+                        <elevation />
+                     </steps>
+                     <steps>
+                        <distance>134.973</distance>
+                        <relativeDirection>LEFT</relativeDirection>
+                        <streetName>road</streetName>
+                        <absoluteDirection>SOUTHEAST</absoluteDirection>
+                        <exit />
+                        <stayOn>false</stayOn>
+                        <area>false</area>
+                        <bogusName>true</bogusName>
+                        <lon>120.3178754</lon>
+                        <lat>16.6175602</lat>
+                        <elevation />
+                     </steps>
+                  </steps>
+               </legs>
+            </legs>
+            <tooSloped>false</tooSloped>
+         </itineraries>
+         <itineraries>
+            <duration>111959</duration>
+            <startTime>1461848329000</startTime>
+            <endTime>1461960288000</endTime>
+            <walkTime>354</walkTime>
+            <transitTime>3</transitTime>
+            <waitingTime>111602</waitingTime>
+            <walkDistance>450.84318044879876</walkDistance>
+            <walkLimitExceeded>false</walkLimitExceeded>
+            <elevationLost>0.0</elevationLost>
+            <elevationGained>0.0</elevationGained>
+            <transfers>0</transfers>
+            <fare>
+               <fare>
+                  <regular>
+                     <currency>
+                        <symbol>PHP</symbol>
+                        <currency>PHP</currency>
+                        <defaultFractionDigits>2</defaultFractionDigits>
+                        <currencyCode>PHP</currencyCode>
+                     </currency>
+                     <cents>850</cents>
+                  </regular>
+               </fare>
+            </fare>
+            <legs>
+               <legs>
+                  <startTime>1461848329000</startTime>
+                  <endTime>1461848409000</endTime>
+                  <departureDelay>0</departureDelay>
+                  <arrivalDelay>0</arrivalDelay>
+                  <realTime>false</realTime>
+                  <isNonExactFrequency />
+                  <headway />
+                  <distance>106.174</distance>
+                  <pathway>false</pathway>
+                  <mode>WALK</mode>
+                  <route />
+                  <agencyName />
+                  <agencyUrl />
+                  <agencyTimeZoneOffset>28800000</agencyTimeZoneOffset>
+                  <routeColor />
+                  <routeType />
+                  <routeId />
+                  <routeTextColor />
+                  <interlineWithPreviousLeg>false</interlineWithPreviousLeg>
+                  <tripShortName />
+                  <tripBlockId />
+                  <headsign />
+                  <agencyId />
+                  <tripId />
+                  <serviceDate />
+                  <from>
+                     <name>service road</name>
+                     <stopId />
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.3181603277695</lon>
+                     <lat>16.632373895307737</lat>
+                     <arrival />
+                     <departure>1461848329000</departure>
+                     <orig />
+                     <zoneId />
+                     <stopIndex />
+                     <stopSequence />
+                     <vertexType>NORMAL</vertexType>
+                  </from>
+                  <to>
+                     <name>Lorma Colleges Brgy Carlatan</name>
+                     <stopId>
+                        <agencyId>LTFRB</agencyId>
+                        <id>STOP71</id>
+                     </stopId>
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.31796</lon>
+                     <lat>16.63186</lat>
+                     <arrival>1461848409000</arrival>
+                     <departure>1461960010000</departure>
+                     <orig />
+                     <zoneId />
+                     <stopIndex>17</stopIndex>
+                     <stopSequence>18</stopSequence>
+                     <vertexType>TRANSIT</vertexType>
+                  </to>
+                  <legGeometry>
+                     <points>ioodBosj}UHt@d@Lf@ACc@HABL</points>
+                     <levels />
+                     <length>7</length>
+                  </legGeometry>
+                  <routeShortName />
+                  <routeLongName />
+                  <boardRule />
+                  <alightRule />
+                  <rentedBike>false</rentedBike>
+                  <duration>80.0</duration>
+                  <transitLeg>false</transitLeg>
+                  <steps>
+                     <steps>
+                        <distance>106.174</distance>
+                        <relativeDirection>DEPART</relativeDirection>
+                        <streetName>service road</streetName>
+                        <absoluteDirection>WEST</absoluteDirection>
+                        <exit />
+                        <stayOn>false</stayOn>
+                        <area>false</area>
+                        <bogusName>false</bogusName>
+                        <lon>120.3181603277695</lon>
+                        <lat>16.632373895307737</lat>
+                        <elevation />
+                     </steps>
+                  </steps>
+               </legs>
+               <legs>
+                  <startTime>1461960010000</startTime>
+                  <endTime>1461960013000</endTime>
+                  <departureDelay>0</departureDelay>
+                  <arrivalDelay>0</arrivalDelay>
+                  <realTime>false</realTime>
+                  <isNonExactFrequency />
+                  <headway />
+                  <distance>1915.5009924795638</distance>
+                  <pathway>false</pathway>
+                  <mode>BUS</mode>
+                  <route>Lingsat - McDo Plaza</route>
+                  <agencyName>Land</agencyName>
+                  <agencyUrl>http://www.ltfrb.gov.ph/</agencyUrl>
+                  <agencyTimeZoneOffset>28800000</agencyTimeZoneOffset>
+                  <routeColor>ff0000</routeColor>
+                  <routeType>3</routeType>
+                  <routeId>PUJ_01</routeId>
+                  <routeTextColor>000000</routeTextColor>
+                  <interlineWithPreviousLeg>false</interlineWithPreviousLeg>
+                  <tripShortName />
+                  <tripBlockId />
+                  <headsign>Yabes South Paseo</headsign>
+                  <agencyId>LTFRB</agencyId>
+                  <tripId>TRIP1</tripId>
+                  <serviceDate>20160429</serviceDate>
+                  <from>
+                     <name>Lorma Colleges Brgy Carlatan</name>
+                     <stopId>
+                        <agencyId>LTFRB</agencyId>
+                        <id>STOP71</id>
+                     </stopId>
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.31796</lon>
+                     <lat>16.63186</lat>
+                     <arrival>1461848409000</arrival>
+                     <departure>1461960010000</departure>
+                     <orig />
+                     <zoneId />
+                     <stopIndex>17</stopIndex>
+                     <stopSequence>18</stopSequence>
+                     <vertexType>TRANSIT</vertexType>
+                  </from>
+                  <to>
+                     <name>McDonald's Plaza</name>
+                     <stopId>
+                        <agencyId>LTFRB</agencyId>
+                        <id>STOP2</id>
+                     </stopId>
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.31664371490479</lon>
+                     <lat>16.61641262433191</lat>
+                     <arrival>1461960013000</arrival>
+                     <departure>1461960014000</departure>
+                     <orig />
+                     <zoneId />
+                     <stopIndex>25</stopIndex>
+                     <stopSequence>26</stopSequence>
+                     <vertexType>TRANSIT</vertexType>
+                  </to>
+                  <legGeometry>
+                     <points>yiodBymj}UfAg@vKcBxJ?J?fD`CO]|AzDdIvBtFPdAIt@GzGkB~@NnNzBhG~@VF@CN_BZyC</points>
+                     <levels />
+                     <length>20</length>
+                  </legGeometry>
+                  <routeShortName>Lingsat - McDo Plaza</routeShortName>
+                  <routeLongName>Jeepney route from Lingsat to McDo Plaza V.V.</routeLongName>
+                  <boardRule />
+                  <alightRule />
+                  <rentedBike>false</rentedBike>
+                  <duration>3.0</duration>
+                  <transitLeg>true</transitLeg>
+                  <steps />
+               </legs>
+               <legs>
+                  <startTime>1461960014000</startTime>
+                  <endTime>1461960288000</endTime>
+                  <departureDelay>0</departureDelay>
+                  <arrivalDelay>0</arrivalDelay>
+                  <realTime>false</realTime>
+                  <isNonExactFrequency />
+                  <headway />
+                  <distance>344.597</distance>
+                  <pathway>false</pathway>
+                  <mode>WALK</mode>
+                  <route />
+                  <agencyName />
+                  <agencyUrl />
+                  <agencyTimeZoneOffset>28800000</agencyTimeZoneOffset>
+                  <routeColor />
+                  <routeType />
+                  <routeId />
+                  <routeTextColor />
+                  <interlineWithPreviousLeg>false</interlineWithPreviousLeg>
+                  <tripShortName />
+                  <tripBlockId />
+                  <headsign />
+                  <agencyId />
+                  <tripId />
+                  <serviceDate />
+                  <from>
+                     <name>McDonald's Plaza</name>
+                     <stopId>
+                        <agencyId>LTFRB</agencyId>
+                        <id>STOP2</id>
+                     </stopId>
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.31664371490479</lon>
+                     <lat>16.61641262433191</lat>
+                     <arrival>1461960013000</arrival>
+                     <departure>1461960014000</departure>
+                     <orig />
+                     <zoneId />
+                     <stopIndex>25</stopIndex>
+                     <stopSequence>26</stopSequence>
+                     <vertexType>TRANSIT</vertexType>
+                  </from>
+                  <to>
+                     <name>road</name>
+                     <stopId />
+                     <stopCode />
+                     <platformCode />
+                     <lon>120.31902063054144</lon>
+                     <lat>16.617047719041945</lat>
+                     <arrival>1461960288000</arrival>
+                     <departure />
+                     <orig />
+                     <zoneId />
+                     <stopIndex />
+                     <stopSequence />
+                     <vertexType>NORMAL</vertexType>
+                  </to>
+                  <legGeometry>
+                     <points>illdBejj}UD[VyBBSBYNuADa@mEaAj@wA</points>
+                     <levels />
+                     <length>9</length>
+                  </legGeometry>
+                  <routeShortName />
+                  <routeLongName />
+                  <boardRule />
+                  <alightRule />
+                  <rentedBike>false</rentedBike>
+                  <duration>274.0</duration>
+                  <transitLeg>false</transitLeg>
+                  <steps>
+                     <steps>
+                        <distance>15.702</distance>
+                        <relativeDirection>DEPART</relativeDirection>
+                        <streetName>Rizal Avenue</streetName>
+                        <absoluteDirection>EAST</absoluteDirection>
+                        <exit />
+                        <stayOn>false</stayOn>
+                        <area>false</area>
+                        <bogusName>false</bogusName>
+                        <lon>120.31667158851329</lon>
+                        <lat>16.616533877094824</lat>
+                        <elevation />
+                     </steps>
+                     <steps>
+                        <distance>156.421</distance>
+                        <relativeDirection>CONTINUE</relativeDirection>
+                        <streetName>F Ortega Highway</streetName>
+                        <absoluteDirection>EAST</absoluteDirection>
+                        <exit />
+                        <stayOn>false</stayOn>
+                        <area>false</area>
+                        <bogusName>false</bogusName>
+                        <lon>120.3168155</lon>
+                        <lat>16.6165035</lat>
+                        <elevation />
+                     </steps>
+                     <steps>
+                        <distance>120.005</distance>
+                        <relativeDirection>LEFT</relativeDirection>
+                        <streetName>P. de Tavera St.</streetName>
+                        <absoluteDirection>NORTH</absoluteDirection>
+                        <exit />
+                        <stayOn>false</stayOn>
+                        <area>false</area>
+                        <bogusName>false</bogusName>
+                        <lon>120.3182563</lon>
+                        <lat>16.616234000000002</lat>
+                        <elevation />
+                     </steps>
+                     <steps>
+                        <distance>52.469</distance>
+                        <relativeDirection>RIGHT</relativeDirection>
+                        <streetName>road</streetName>
+                        <absoluteDirection>SOUTHEAST</absoluteDirection>
+                        <exit />
+                        <stayOn>false</stayOn>
+                        <area>false</area>
+                        <bogusName>false</bogusName>
+                        <lon>120.31858620000001</lon>
+                        <lat>16.6172659</lat>
+                        <elevation />
+                     </steps>
+                  </steps>
+               </legs>
+            </legs>
+            <tooSloped>false</tooSloped>
+         </itineraries>
+      </itineraries>
+   </plan>
+   <error />
+   <debugOutput>
+      <precalculationTime>6</precalculationTime>
+      <pathCalculationTime>7</pathCalculationTime>
+      <pathTimes>
+         <pathTimes>2</pathTimes>
+         <pathTimes>1</pathTimes>
+      </pathTimes>
+      <renderingTime>1</renderingTime>
+      <totalTime>14</totalTime>
+      <timedOut>false</timedOut>
+   </debugOutput>
+</Response>

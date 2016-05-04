@@ -1,0 +1,33 @@
+#container {
+    width:100%;
+    margin:20px auto;
+}
+
+#content {
+    float:left;
+    width:75%;
+}
+
+#sidebar {
+    float:left;
+    width:25%;
+}
+
+ #searchbox{
+    padding: 10px;
+    
+   
+  }
+
+  .list-three {
+  width: 100%;
+}
+
+
+#routeId:hover > div {
+  opacity: 0.5;
+}
+
+#routeId:hover > div:hover {
+  opacity: 1.0;
+}

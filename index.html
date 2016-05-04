@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Metro San Fernando Multi Modal Transport Planning System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+  <link rel="stylesheet" href="leaflet/leaflet.css" />
+  <link rel="stylesheet" href="leaflet/leaflet-routing-machine.css" />
+
+  <link rel="stylesheet" href="css/leaflet.awesome-markers.css"/>
+  <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+  <!--google api for places lib-->
+
+
+
+  <!-- Compressed CSS -->
+
+  <style>
+
+
+  #map{
+    height: 1000px;
+
+  }
+
+  </style>
+
+
+</head>
+<body>
+  <div class="container">
+    <div class="ui left vertical menu sidebar visible">
+
+     <div id="panel1"> 
+      <form class="ui form">
+        <div class="field">
+          <input type="text" id="from" placeholder="Origin">
+        </div>
+        <div class="field">
+          <input type="text" id="to" placeholder="Destination">
+        </div>
+      </form>
+
+
+ <div id="result">
+
+        
+      <div class="ui top attached tabular menu">
+          <a class="active item" data-tab="first">Transit</a>
+          <a class="item" data-tab="second">Tricycle</a>
+      </div>
+      <div class="ui bottom attached tab segment active" data-tab="first">
+            
+       <div id="it_list"></div>
+      </div>
+       <div class="ui bottom attached tab segment" data-tab="second">
+             <div id="tricycle_list"></div>
+      </div>
+ </div>
+    
+  
+
+     <div id="result_next">
+      <div id="leg_list"> </div>
+    </div>
+
+
+  </div>
+</div>
+
+<div class="pusher">
+ <div id="map"></div>
+</div>
+
+</div>
+
+
+
+
+
+
+<script id="template_legs" type="text/ractive">
+
+<div class="ui items">
+{{#legs:i}}
+ <a href="javascript:" class="item" on-click
+           ="click:{{i}}">
+<div class="item">
+    <div class="ui small image">
+       <img src="/images/wireframe/image.png">
+    </div>
+    <div class="content">
+        <div class="header">{{mode}}  {{from}} to {{to}}</div>
+        <div class="meta">
+            <span class="distance">Route   : {{route}} </span>
+            <span class="distance">Distance {{distance}}</span>
+            <span class="fare">Fare {{fare}}</span>
+        </div>
+        <div class="description">
+        <p></p>
+        </div>
+    </div>
+ </div>   
+ </a>
+{{/legs}}  
+</div>
+</script>
+
+
+<script id="tricycle_template" type="text/ractive">
+ 
+  <div class="ui divided items" id="tric_id" >
+
+            {{#tricycle:i}}
+           <a href="javascript:" class="item" on-click
+           ="over:{{i}}" on-mouseover="hover:{{i}}">
+             <i class="large car icon"></i>
+                <div class="middle aligned content">
+                 Duration {{summary.totalTime/60}} mins<br>
+                 Distance {{summary.totalDistance/1000}} km<br>
+                 Fare     {{summary.totalDistance/1000 * 100}}
+                 
+                </div>
+            </a>
+        {{/tricycle}}
+</div>
+</script>
+
+
+
+
+<script id="template_it" type="text/ractive">
+
+
+
+            <div class="ui divided items" id="routeId">
+            {{#it:i}}
+            <a href="javascript:" class="item" on-click="click:{{i}}"  on-mouseover="hover:{{i}}">
+
+            <i class="large car icon"></i>
+
+                  <div class="middle aligned content">
+
+                  Duration: {{duration}}<br>
+                  Walk Distance : {{walkDistance}} m<br>
+                  Total Distance: {{distance}} km <br>
+                  Fare          : {{fare}}
+                  </div>
+            </a>
+            {{/it}}
+
+            </div>
+
+     
+</script>
+
+
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0V8oB_W2WQn0hD9bztfrnlfmTIMjPr4o&libraries=places"></script>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+<script src="leaflet/leaflet.js"></script>
+<script src="leaflet/leaflet-routing-machine.js"></script>
+<script src="leaflet/Polyline.encoded.js"></script>
+
+<script src="semantic/semantic.min.js"></script>
+
+<!-- Compressed JavaScript -->
+
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+
+
+<script src="js/leaflet.awesome-markers.js"></script>
+
+<script src='http://cdn.ractivejs.org/latest/ractive.js'></script>
+
+
+
+
+<script src="js/map.js"></script>
+<script src="js/util.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+ $('.menu .item')
+ .tab()
+ ;
+
+});
+
+</script>
+
+</body>
+</html>
